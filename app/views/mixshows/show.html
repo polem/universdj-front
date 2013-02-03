@@ -1,0 +1,8 @@
+<h1>{{ mixshow.name }}</h1>
+
+
+<ul>
+    <li ng-repeat="episode in mixshow.episodes">
+    <a audio href="http://api.universdj.com.local{{ episode.url }}" title="{{ episode.name }}" artist="{{ mixshow.dj.name }}" album="{{ mixshow.name }}">{{ episode.name }}</a>
+    </li>
+</ul>

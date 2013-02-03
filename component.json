@@ -1,0 +1,9 @@
+{
+    "name": "Universdj",
+    "version": "1.0.0",
+    "dependencies": {
+        "soundmanager": "*",
+        "numeral" : "*",
+        "zepto" : "*"
+    }
+}

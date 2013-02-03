@@ -1,0 +1,25 @@
+<div class="hero-unit">
+  <h1>UniversDj.com</h1>
+</div>
+
+
+<div class="row">
+    <div class="span4">
+        <h3>Mixshows <small>see all</small></h3>
+        <ul>
+            <li ng-repeat="mixshow in mixshows"><a href="/#/mixshows/{{ mixshow.id }}">{{ mixshow.name }}</a> par <a href="/#/djs/{{mixshow.dj.id }}">{{ mixshow.dj.name }}</a></li>
+        </ul>
+    </div>
+    <div class="span4">
+        <h3>Parties <small>see all</small></h3>
+        <ul>
+            <li ng-repeat="mixshow in mixshows">{{ mixshow.name }} par {{ mixshow.dj.name }}</li>
+        </ul>
+    </div>
+    <div class="span4">
+        <h3>Playlist <small>see all</small></h3>
+        <ul>
+            <li ng-repeat="mixshow in mixshows">{{ mixshow.name }} par {{ mixshow.dj.name }}</li>
+        </ul>
+    </div>
+</div>
