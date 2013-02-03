@@ -33,4 +33,7 @@ app.run ($rootScope, soundmanager, $q) ->
     $rootScope.closePlayer = () ->
         $('#player').removeClass('opened')
 
+    $rootScope.togglePlayer = () ->
+        if $('#player').hasClass('opened') then @closePlayer() else @openPlayer()
+
     $rootScope.initPlayer()
