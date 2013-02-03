@@ -1,14 +1,14 @@
 <div class="info clearfix">
     <div class="container">
-        <img src="http://placehold.it/52x52" class="cover">
+        <img src="{{ player.currentTrack.cover }}" class="cover">
         <div class="title">{{ player.currentTrack.title }}</div>
         <div class="artist">{{ player.currentTrack.artist }}</div>
         <div>{{ player.currentTrack.album }}</div>
     </div>
 </div>
-<div class="audioplayer" ng:class="{true:'audioplayer-playing', false:''}[player.playState]">
+<div class="audioplayer" ng:class="{true:'', false:'audioplayer-playing'}[player.paused]">
     <div class="container">
-        <div class="audioplayer-playpause" title="Play" ng-click="togglePlayPause()"><a href >Play</a></div>
+        <div class="audioplayer-playpause" title="Play" ng-click="player.togglePlayPause()"><a href >Play</a></div>
         <div class="audioplayer-time audioplayer-time-current">{{ player.time.position }}</div>
         <div class="audioplayer-bar">
             <div class="audioplayer-bar-loaded"></div>

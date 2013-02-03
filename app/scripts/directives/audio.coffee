@@ -5,6 +5,7 @@ angular.module('www.universdj.comApp')
         restrict: 'A'
         link: (scope, element, attrs) ->
             element.bind 'click', (event) ->
+                scope.openPlayer()
                 soundmanager.play(
                     url: attrs.href
                     title: attrs.title

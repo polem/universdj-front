@@ -4,6 +4,7 @@
     "dependencies": {
         "soundmanager": "*",
         "numeral" : "*",
-        "zepto" : "*"
+        "zepto" : "*",
+        "bootstrap" : "*"
     }
 }

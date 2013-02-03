@@ -27,4 +27,10 @@ app.run ($rootScope, soundmanager, $q) ->
         soundmanager.init().then () ->
             $rootScope.playerReady = true
 
+    $rootScope.openPlayer = () ->
+        $('#player').addClass('opened')
+
+    $rootScope.closePlayer = () ->
+        $('#player').removeClass('opened')
+
     $rootScope.initPlayer()

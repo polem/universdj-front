@@ -653,12 +653,8 @@ body > .container {
     }
 }
 
-#player.enabled {
+#player.enabled.opened {
     margin-top: 0px;
-}
-
-#player.collapsed{
-    margin-top: -100%;
 }
 
 #top-nav {

@@ -6,6 +6,7 @@ angular.module('www.universdj.comApp')
         class Track
             constructor: (options, metadatas) ->
                 @SMSoundObject = soundManager.createSound(options)
+                metadatas.cover = "http://placehold.it/52x52"
                 @metadatas = metadatas
             play: (options) ->
                 @SMSoundObject.play(options)
