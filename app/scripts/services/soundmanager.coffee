@@ -32,7 +32,6 @@ angular.module('www.universdj.comApp')
                 @currentTrack = null
 
             init: () ->
-                console.log('init call')
                 deferred = $q.defer()
                 self = @
                 soundManager.setup(
@@ -83,5 +82,20 @@ angular.module('www.universdj.comApp')
                 return @playlist
 
         player = new Player();
+
+        Mousetrap.bind('space',  () ->
+            player.currentTrack.SMSoundObject.togglePause()
+            return false
+        )
+
+        Mousetrap.bind('left',  () ->
+            sound = player.currentTrack.SMSoundObject
+            sound.setPosition(sound.position - 30000)
+        )
+
+        Mousetrap.bind('right',  () ->
+            sound = player.currentTrack.SMSoundObject
+            sound.setPosition(sound.position + 30000)
+        )
 
         return player

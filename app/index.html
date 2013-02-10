@@ -16,7 +16,7 @@
         <!--[if lt IE 7]>
             <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
         <![endif]-->
-        
+
         <!--[if lt IE 9]>
             <script src="scripts/vendor/es5-shim.min.js"></script>
             <script src="scripts/vendor/json3.min.js"></script>
@@ -38,6 +38,10 @@
                             <li><a href ng-click="togglePlayer()">Player</a></li>
                         </ul>
                     </div>
+                    <div class="pull-right">
+                        <a href="#loginForm" ng-hide="user.isAuthenticated()" data-toggle="modal" role="button" ng-click="openLoginForm()" class="btn">Login</a>
+                        <span href ng-show="user.isAuthenticated()" >{{ user.login }}</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -46,13 +50,62 @@
             <div player ></div>
         </div>
 
+        <div class="container">
+            <div class="modal hide fade" id="loginForm">
+                <form ng-submit="user.login(loginForm.login, loginForm.password)" class="form-horizontal">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h3>Login</h3>
+                    </div>
+                    <div class="modal-body">
+                        <div class="control-group">
+                            <label class="control-label" for="login">Login</label>
+                            <div class="controls">
+                                <input type="text" id="login" placeholder="login" ng-model="loginForm.login">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" for="password">Password</label>
+                            <div class="controls">
+                                <input type="password" id="password" placeholder="password" ng-model="loginForm.password">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-large btn-primary">S'identifier</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
         <!-- Add your site or application content here -->
         <div class="container" ng-view></div>
 
+        <div class="container">
+            <h2>Likes<small>{{ likes.length }}</small></h2>
+            <ul>
+                <li ng-repeat="like in user.likes">{{ like.toString() }}</li>
+            </ul>
+        </div>
+
+        <!-- build:js models/models.min.js -->
+        <script src="scripts/models/model.js"></script>
+        <script src="scripts/models/mixshow.js"></script>
+        <script src="scripts/models/episode.js"></script>
+        <script src="scripts/models/modelfactory.js"></script>
+        <script src="scripts/models/collection.js"></script>
+        <!-- endbuild -->
+
+        <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+
+        <!-- build:js components/components.min.js -->
         <script src="components/soundmanager/script/soundmanager2-jsmin.js"></script>
         <script src="components/numeral/numeral.js"></script>
-        <script src="components/zepto/zepto.min.js"></script>
+        <script src="components/mousetrap/mousetrap.min.js"></script>
         <script src="components/bootstrap/js/bootstrap-collapse.js"></script>
+        <script src="components/bootstrap/js/bootstrap-modal.js"></script>
+        <!-- endbuild -->
 
         <script src="scripts/vendor/angular.js"></script>
 
@@ -65,6 +118,9 @@
         <script src="scripts/controllers/djs/show.js"></script>
         <script src="scripts/directives/player.js"></script>
         <script src="scripts/directives/audio.js"></script>
+        <script src="scripts/services/api.js"></script>
+        <script src="scripts/services/em.js"></script>
+        <script src="scripts/services/user.js"></script>
         <!-- endbuild -->
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->

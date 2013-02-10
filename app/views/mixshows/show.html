@@ -1,8 +1,36 @@
-<h1>{{ mixshow.name }}</h1>
+<div class="clearfix">
+    <img src="http://i1-static.djpod.com/podcasts/love-is-the-message/958e33_200x200.jpg" class="pull-left" style="margin-right: 50px">
+    <h1>{{ mixshow.name }}<br> <small>{{ mixshow.dj.name }}</small></h1>
 
 
-<ul>
-    <li ng-repeat="episode in mixshow.episodes">
-    <a audio href="http://api.universdj.com.local{{ episode.url }}" title="{{ episode.name }}" artist="{{ mixshow.dj.name }}" album="{{ mixshow.name }}">{{ episode.name }}</a>
-    </li>
-</ul>
+    <ul>
+        <li ng-repeat="episode in mixshow.episodes">
+        <a audio href="{{ episode.url }}" title="{{ episode.name }}" artist="{{ mixshow.dj.name }}" album="{{ mixshow.name }}">{{ episode.name }}</a> - <a ng-click="user.like(episode)">Like</a>
+        </li>
+    </ul>
+
+</div>
+
+
+<hr>
+<h2>Commentaires</h2>
+
+    <form ng-submit="addMessage()">
+        <fieldset>
+            <label>Pseudo</label>
+            <input type="text" ng-model="newMessage.author" placeholder="Votre nom" class="input-xxlarge" />
+            <label>Commentaire</label>
+            <textarea ng-model="newMessage.content"  size="30" rows="4" placeholder="Ajouter un commentaire" class="input-xxlarge"></textarea>
+            <div class="form-actions">
+                <input class="btn-primary btn-large" type="submit" value="Ajouter">
+            </div>
+        </fieldset>
+    </form>
+
+    <div>
+        <div ng-repeat="message in messages" class="well">
+            <p class="muted">{{ message.date }}</p>
+            <strong>{{ message.author }}</strong>
+            <p>{{ message.content }}<p>
+        </div>
+    </div>

@@ -19,7 +19,9 @@ app = angular.module('www.universdj.comApp', [])
         redirectTo: '/'
   ]
 
-app.run ($rootScope, soundmanager, $q) ->
+app.run ($rootScope, user, soundmanager, $q) ->
+
+    $rootScope.user = user
 
     $rootScope.playerReady = false
 
@@ -37,3 +39,9 @@ app.run ($rootScope, soundmanager, $q) ->
         if $('#player').hasClass('opened') then @closePlayer() else @openPlayer()
 
     $rootScope.initPlayer()
+
+    $rootScope.openLoginModal = () ->
+        $('#loginForm').modal('show')
+
+    $rootScope.closeLoginModal = () ->
+        $('#loginForm').modal('hide')

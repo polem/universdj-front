@@ -5,6 +5,7 @@
         "soundmanager": "*",
         "numeral" : "*",
         "zepto" : "*",
+        "mousetrap" : "*",
         "bootstrap" : "*"
     }
 }
